@@ -9,4 +9,4 @@ abstract class AbstractVideo{
     abstract public function ajouterCourVideo($title, $content, $image, $video, $category, $idTeacher);
     abstract public function afficherCourVideo($idCour);
 }
-
+?>

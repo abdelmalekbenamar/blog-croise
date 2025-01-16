@@ -11,7 +11,7 @@
         <li class="li text-center p-2.5 border-b-[black] border-b border-solid"><a href="./parametres.php">Paramètres</a></li>
         <?php } ?>
         <?php if(isset($_SESSION["status"]) && $_SESSION["status"] == 1 && $_SESSION["rule"] == 2){ ?>
-        <li class="li text-center p-2.5 border-b-[black] border-b border-solid"><a href="./ajouterArticle.php">Ajouter Cour</a></li>
+        <li class="li text-center p-2.5 border-b-[black] border-b border-solid"><a href="./ajouterCour.php">Ajouter Cour</a></li>
         <?php } ?>
         <?php if(isset($_SESSION["status"]) && $_SESSION["status"] == 1 && $_SESSION["rule"] == 3){ ?>
         <li class="li text-center p-2.5 border-b-[black] border-b border-solid"><a href="./#">Mes Cours</a></li>
@@ -42,7 +42,7 @@
         <li class="MPLi mx-5 my-0"><a href="./parametres.php">Paramètres</a></li>
         <?php } ?>
         <?php if(isset($_SESSION["status"]) && $_SESSION["status"] == 1 && $_SESSION["rule"] == 2){ ?>
-        <li class="MPLi mx-5 my-0"><a href="./ajouterArticle.php">Ajouter Cour</a></li>
+        <li class="MPLi mx-5 my-0"><a href="./ajouterCour.php">Ajouter Cour</a></li>
         <?php } ?>
         <?php if(isset($_SESSION["status"]) && $_SESSION["status"] == 1 && $_SESSION["rule"] == 3){ ?>
         <li class="MPLi mx-5 my-0"><a href="./#">Mes Cours</a></li>

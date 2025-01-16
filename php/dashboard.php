@@ -1,10 +1,10 @@
             <div class="articles">
                 <img class="w-[25px] block mx-auto my-0" src="./assets/images/course.png" alt="">
-                <p><a href="./parametreArticles.php">Cours</a></p>
+                <p><a href="./parametreCours.php">Cours</a></p>
             </div>
             <div class="commentaires">
                 <img class="w-[25px] block mx-auto my-0" src="./assets/images/teacher.png" alt="">
-                <p><a href="./parametreCommentaires.php">Enseignants</a></p>
+                <p><a href="./parametreEnseignants.php">Enseignants</a></p>
             </div>
             <div class="utilisateurs">
                 <img class="w-[25px] block mx-auto my-0" src="./assets/images/student.png" alt="">

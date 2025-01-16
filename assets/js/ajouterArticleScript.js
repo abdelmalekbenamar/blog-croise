@@ -5,7 +5,7 @@ const courText = document.querySelector(".courText");
 const courVideo = document.querySelector(".courVideo");
 
 
-courText.style.borderBottom = "none";
+
 
 
 categories.forEach(el => {
@@ -39,3 +39,5 @@ courText.addEventListener("click", () => {
     ajouterCourTextForm.style.display = "block";
     ajouterCourTextForm.style.borderTop = "none";
 });
+
+courText.click();
