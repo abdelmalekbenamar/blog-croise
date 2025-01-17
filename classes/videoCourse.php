@@ -54,6 +54,34 @@ class VideoCourse extends AbstractVideo{
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     } 
+
+    //la fonction qui permet de retourner tous les cours videos
+    public function displayAllVideos(){
+        $stmt = $this->connection->prepare("SELECT * FROM videoCourse;");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    //la fonction qui permet de retourner tous les cours videos d'un enseignat
+    public function displayTeacherCourseVideo($idTeacher){
+        $stmt = $this->connection->prepare("SELECT * FROM videoCourse WHERE idTeacher = :idTeacher;");
+        $stmt->bindParam(":idTeacher", $idTeacher);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    //la fonction qui permet de modifier un cour texte
+    public function modifyVideoCourse($idCourse, $title, $content, $image, $video){
+        $stmt = $this->connection->prepare("UPDATE videoCourse SET title = :title, content = :content, image = :image, video = :video WHERE id = :id;");
+        $stmt->bindParam(":title", $title);
+        $stmt->bindParam(":content", $content);
+        $stmt->bindParam(":image", $image);
+        $stmt->bindParam(":video", $video);
+        $stmt->bindParam(":id", $idCourse);
+        $stmt->execute();
+    }
  
 
 }
