@@ -16,13 +16,13 @@
 
             <div class="etudiant">
                 <img class="w-[25px] block mx-auto my-0" src="./assets/images/student.png" alt="">
-                <p><a href="#">Étudiants</a></p>
+                <p><a href="../parametreEtudiants.php">Étudiants</a></p>
             </div>
 
 
             <div class="categories">
                 <img class="w-[25px] block mx-auto my-0" src="./assets/images/category.png" alt="">
-                <p><a href="#">Catégories</a></p>
+                <p><a href="../parametreCategories.php">Catégories</a></p>
             </div>
 
 

@@ -69,4 +69,27 @@ class User{
         $stmt->bindParam(":id", $id);
         $stmt->execute();
     }
+
+    //la fonction qui permet de retourner tous les etudiants
+    public function displayAllStudents(){
+        $stmt = $this->connection->prepare("SELECT * FROM users WHERE idRule = 3;");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    //la fonction qui permet de desactiver un etudiant
+    public function desactiverEtudiant($id){
+        $stmt = $this->connection->prepare("UPDATE users SET status = 0 WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+    }
+
+    //la fonction qui permet de activer un etudiant
+    public function activateStudent($id){
+        $stmt = $this->connection->prepare("UPDATE users SET status = 1 WHERE id = :id;");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
 }
