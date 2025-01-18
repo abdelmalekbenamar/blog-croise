@@ -6,10 +6,14 @@
 
 
 
-.containerArticleImage{
+/* .containerArticleImage{
     overflow: hidden;
     height: 230px;
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+.teacherForms{
+    display: flex;
 }

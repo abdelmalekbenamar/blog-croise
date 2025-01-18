@@ -47,4 +47,26 @@ class User{
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    //methode qui permet d afficher tous les enseignants
+    public function displayAllTeachers(){
+        $stmt = $this->connection->prepare("SELECT * FROM users WHERE idRule = 2;");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    //la fonction qui permet d activer un enseignat
+    public function activateTeacher($id){
+        $stmt = $this->connection->prepare("UPDATE users SET status = 1 WHERE id = :id;");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
+
+    //la fonction qui permet de desactiver un enseignant
+    public function desactiverTeacher($id){
+        $stmt = $this->connection->prepare("UPDATE users SET status = 0 WHERE id = :id;");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
 }

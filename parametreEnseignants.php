@@ -1,5 +1,10 @@
 <?php
 session_start();
+require_once("./classes/user.php");
+
+$userObj = new User();
+$users = $userObj->displayAllTeachers();
+
 
 
 ?>
@@ -24,58 +29,43 @@ session_start();
     
         <div class="partieDroite w-[calc(100vw_-_80px)] mt-[55px] p-[10px] overflow-y-auto h-[70vh]">
 
-            <div class="md:flex md:justify-between">
-                <!-- <button class="bg-[blue] text-[white] p-[5px] rounded-[5px] m-[5px]">Ajouter</button> -->
-                <form action="">
-                    <input class="text-[black] p-[5px] rounded-[5px] m-[5px]" type="text">
-                    <button class="bg-[orangered] text-[white] p-[5px] rounded-[5px] m-[5px]" type="submit">Chercher</button>
-                </form>
-            </div>
+
 
             <table class="w-full border-spacing-0">
                 <thead class="bg-[coral] font-[bolder]">
-                    <td class="border p-2.5 border-solid border-[black]">Titre article</td>
-                    <td class="border p-2.5 border-solid border-[black]">Commentaire</td>
+                    <td class="border p-2.5 border-solid border-[black]">Nom</td>
+                    <td class="border p-2.5 border-solid border-[black]">Email</td>
                     <td class="border p-2.5 border-solid border-[black]">Action</td>
                 </thead>
 
+            <?php foreach($users as $user){ ?>
+                <tr>
+                    <td class="border p-2.5 border-solid border-[black]"><?php echo $user["nam"]; ?></td>
+                    <td class="border p-2.5 border-solid border-[black]"><?php echo $user["mail"]; ?></td>
+                    <td class="border p-2.5 border-solid border-[black]">
+                    
+                    
+                    <div class="teacherForms">
+                    <?php if($user["status"] == 0){ ?>
+                        <form action="./php/activerEnseignat.php" method="POST">
+                            <input hidden value="<?php echo $user["id"]; ?>" name="idUser" type="text">
+                            <button class="editerArticle bg-[green] text-[white] p-[5px] rounded-[5px]">Activer</button>
+                        </form>
+                    <?php }else if($user["status"] == 1){ ?>
 
-                <tr>
-                    <td class="border p-2.5 border-solid border-[black]">Mon titre 1</td>
-                    <td class="border p-2.5 border-solid border-[black]">Mon commentaire</td>
-                    <td class="border p-2.5 border-solid border-[black]">
-                        <button class="editerArticle bg-[green] text-[white] p-[5px] rounded-[5px] m-[5px]">Editer</button>
-                        <button class="supprimerArticle bg-[red] text-[white] p-[5px] rounded-[5px]">Supprimer</button>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td class="border p-2.5 border-solid border-[black]">Mon titre 1</td>
-                    <td class="border p-2.5 border-solid border-[black]">Mon commentaire</td>
-                    <td class="border p-2.5 border-solid border-[black]">
-                        <button class="editerArticle bg-[green] text-[white] p-[5px] rounded-[5px] m-[5px]">Editer</button>
-                        <button class="supprimerArticle bg-[red] text-[white] p-[5px] rounded-[5px]">Supprimer</button>
-                    </td>
-                </tr>
+                        <form action="./php/desactiverEnseignat.php" method="POST">
+                            <input value="<?php echo $user["id"]; ?>" hidden name="idUser" type="text">
+                            <button class="supprimerArticle bg-[red] text-[white] p-[5px] rounded-[5px]">Désactiver</button>
+                        </form>
+                    <?php } ?>
+                    </div>
 
-                <tr>
-                    <td class="border p-2.5 border-solid border-[black]">Mon titre 1</td>
-                    <td class="border p-2.5 border-solid border-[black]">Mon commentaire</td>
-                    <td class="border p-2.5 border-solid border-[black]">
-                        <button class="editerArticle bg-[green] text-[white] p-[5px] rounded-[5px] m-[5px]">Editer</button>
-                        <button class="supprimerArticle bg-[red] text-[white] p-[5px] rounded-[5px]">Supprimer</button>
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="border p-2.5 border-solid border-[black]">Mon titre 1</td>
-                    <td class="border p-2.5 border-solid border-[black]">Mon commentaire</td>
-                    <td class="border p-2.5 border-solid border-[black]">
-                        <button class="editerArticle bg-[green] text-[white] p-[5px] rounded-[5px] m-[5px]">Editer</button>
-                        <button class="supprimerArticle bg-[red] text-[white] p-[5px] rounded-[5px]">Supprimer</button>
-                    </td>
-                </tr>
+            <?php } ?>
 
+                <!--
                 <tr>
                     <td class="border p-2.5 border-solid border-[black]">Mon titre 1</td>
                     <td class="border p-2.5 border-solid border-[black]">Mon commentaire</td>
@@ -84,24 +74,11 @@ session_start();
                         <button class="supprimerArticle bg-[red] text-[white] p-[5px] rounded-[5px]">Supprimer</button>
                     </td>
                 </tr>
+                -->
 
-                <tr>
-                    <td class="border p-2.5 border-solid border-[black]">Mon titre 1</td>
-                    <td class="border p-2.5 border-solid border-[black]">Mon commentaire</td>
-                    <td class="border p-2.5 border-solid border-[black]">
-                        <button class="editerArticle bg-[green] text-[white] p-[5px] rounded-[5px] m-[5px]">Editer</button>
-                        <button class="supprimerArticle bg-[red] text-[white] p-[5px] rounded-[5px]">Supprimer</button>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td class="border p-2.5 border-solid border-[black]">Mon titre 1</td>
-                    <td class="border p-2.5 border-solid border-[black]">Mon commentaire</td>
-                    <td class="border p-2.5 border-solid border-[black]">
-                        <button class="editerArticle bg-[green] text-[white] p-[5px] rounded-[5px] m-[5px]">Editer</button>
-                        <button class="supprimerArticle bg-[red] text-[white] p-[5px] rounded-[5px]">Supprimer</button>
-                    </td>
-                </tr>
+
+
 
             </table>
 

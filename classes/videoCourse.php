@@ -89,6 +89,8 @@ class VideoCourse extends AbstractVideo{
         $stmt->bindParam(":id", $idCourse);
         $stmt->execute();
     }
+
+    
  
 
 }
