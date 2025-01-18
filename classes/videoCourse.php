@@ -82,6 +82,13 @@ class VideoCourse extends AbstractVideo{
         $stmt->bindParam(":id", $idCourse);
         $stmt->execute();
     }
+
+    //la fonction qui permet de supprimer un cour video
+    public function deleteCourse($idCourse){
+        $stmt = $this->connection->prepare("DELETE FROM videoCourse WHERE id = :id;");
+        $stmt->bindParam(":id", $idCourse);
+        $stmt->execute();
+    }
  
 
 }

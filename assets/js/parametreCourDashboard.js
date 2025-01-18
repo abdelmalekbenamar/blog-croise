@@ -10,6 +10,10 @@ const editerCourVideoForm = document.querySelector(".editerCourVideoForm");
 const annulerCourTextButton = document.querySelector(".annulerCourTextButton");
 const annulerCourVideoButton = document.querySelector(".annulerCourVideoButton");
 
+const supprimerCourForm = document.querySelector(".supprimerCourForm");
+const annulerSuppButton = document.querySelector(".annulerModifButton");
+
+
 editerCourText.forEach(el => {
     el.addEventListener("click", () => {
         const parentnode = el.parentNode.parentNode;
@@ -71,6 +75,47 @@ annulerCourVideoButton.addEventListener("click", (e) => {
     e.preventDefault();
     editerCourVideoForm.style.display = "none";
 
+});
+
+supprimerCourText.forEach(el => {
+    el.addEventListener("click", () =>{
+        supprimerCourForm.style.display = "block";
+        const parntNode = el.parentNode.parentNode;
+        const typeCour = parntNode.querySelector(".typeCour");
+        const idInput = parntNode.querySelector(".idCour");
+
+        console.log(typeCour.value);
+        console.log(idInput.value);
+
+         
+        const formIdInput = supprimerCourForm.querySelector(".idArticleASupprime");
+        const formTypeCour = supprimerCourForm.querySelector(".typeCourFormDelete");
+
+        formIdInput.value = idInput.value;
+        formTypeCour.value = typeCour.value;
+
+    });
+});
+
+supprimerCourVideo.forEach(el => {
+    el.addEventListener("click", () => {
+        supprimerCourForm.style.display = "block";
+        const prntNode = el.parentNode.parentNode;
+        const typeCour = prntNode.querySelector(".typeCour");
+        const idInput = prntNode.querySelector(".idCour");
+
+        const formIdInput = supprimerCourForm.querySelector(".idArticleASupprime");
+        const formTypeCour = supprimerCourForm.querySelector(".typeCourFormDelete");
+
+        formIdInput.value = idInput.value;
+        formTypeCour.value = typeCour.value;
+
+    });
+});
+
+annulerSuppButton.addEventListener("click", e => {
+    e.preventDefault();
+    supprimerCourForm.style.display = "none";
 });
 
 

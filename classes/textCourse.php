@@ -75,6 +75,13 @@ class TextCourse extends AbstractText{
         $stmt->execute();
     }
 
+    //la fonction qui permet de supprimer un cour text
+    public function deleteCourse($idCourse){
+        $stmt = $this->connection->prepare("DELETE FROM textCourse WHERE id = :id;");
+        $stmt->bindParam(":id", $idCourse);
+        $stmt->execute();
+    }
+
 }
 
 ?>

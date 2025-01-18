@@ -65,7 +65,7 @@ if($_SESSION["rule"] == 1){
                 <tr>
                     <td class="border p-2.5 border-solid border-[black]"><?php echo $element["title"]; ?>
                     <input hidden class="idCour" value="<?php echo $element["id"]; ?>" type="text">
-                    <input hidden class="typeCour" value="text" type="text">
+                    <input hidden class="typeCour" value="video" type="text">
                     <input hidden value="<?php echo $element["title"]; ?>" class="titreAModifier" type="text">
                     <input hidden value="<?php echo $element["content"]; ?>" class="contentAModifier" type="text">
                     <input hidden value="<?php echo $element["image"]; ?>" class="ancienneImage" type="text">
@@ -123,9 +123,10 @@ if($_SESSION["rule"] == 1){
 
 
 
-    <form class="supprimerCourForm hidden w-[360px] bg-[linear-gradient(45deg,burlywood,chocolate)] absolute left-[calc(50%_-_180px)] p-2.5 rounded-[10px] top-[200px]" action="" method="POST">
+    <form class="supprimerCourForm hidden w-[360px] bg-[linear-gradient(45deg,burlywood,chocolate)] absolute left-[calc(50%_-_180px)] p-2.5 rounded-[10px] top-[200px]" action="./php/supprimerCourFormSubmit.php" method="POST">
         <p class="text-center text-[17px] p-[15px]">Êtes-vous sûr de supprimer ce cour ?</p>
-        <input class="hidden" name="idArticleASupprime" type="text">
+        <input class="hidden idArticleASupprime" name="idArticleASupprime" type="text">
+        <input hidden class="typeCourFormDelete" name="typeCourASupp" type="text">
         <div class="flex justify-center">
             <button class="modifierArticleButton border w-[100px] p-[5px] rounded-[5px] border-solid border-[black] mt-2.5 mb-0 mx-auto" type="submit">Supprimer</button>
             <button class="annulerModifButton border w-[100px] p-[5px] rounded-[5px] border-solid border-[black] mt-2.5 mb-0 mx-auto">Annuler</button>

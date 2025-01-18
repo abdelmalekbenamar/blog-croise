@@ -19,3 +19,4 @@ if(isset($_FILES["courVideo"])){
 
 
 $videoObj->modifyVideoCourse($_POST["idCour"], $_POST["titreCourAModifier"], $_POST["courAModifie"], $fileTextName, $fileVideoName);
+header("Location: ../parametreCours.php");
