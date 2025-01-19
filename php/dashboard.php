@@ -16,19 +16,19 @@
 
             <div class="etudiant">
                 <img class="w-[25px] block mx-auto my-0" src="./assets/images/student.png" alt="">
-                <p><a href="../parametreEtudiants.php">Étudiants</a></p>
+                <p><a href="./parametreEtudiants.php">Étudiants</a></p>
             </div>
 
 
             <div class="categories">
                 <img class="w-[25px] block mx-auto my-0" src="./assets/images/category.png" alt="">
-                <p><a href="../parametreCategories.php">Catégories</a></p>
+                <p><a href="./parametreCategories.php">Catégories</a></p>
             </div>
 
 
             <div class="tags">
                 <img class="w-[25px] block mx-auto my-0" src="./assets/images/tag.png" alt="">
-                <p><a href="#">Tags</a></p>
+                <p><a href="./parametreTags.php">Tags</a></p>
             </div>
 
             <?php } ?>

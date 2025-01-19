@@ -36,4 +36,26 @@ class Tag{
         $stmt->bindParam(":idCourse", $idCourse);
         $stmt->execute();
     }
+
+    //la fonction qui permet de editer un tag
+    public function editTag($id, $newTag){
+        $stmt = $this->connection->prepare("UPDATE tags SET nam = :nam WHERE id = :id;");
+        $stmt->bindParam(":nam", $newTag);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
+
+    //la fonction qui permet de supprimer un tag
+    public function deleteTag($id){
+        $stmt = $this->connection->prepare("DELETE FROM tags WHERE id = :id;");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
+
+    //la fonction qui permet d ajouter un nouveau tag
+    public function addTag($tag){
+        $stmt = $this->connection->prepare("INSERT INTO tags (nam) VALUES (:tag);");
+        $stmt->bindParam(":tag", $tag);
+        $stmt->execute();
+    }
 }
